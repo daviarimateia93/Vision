@@ -16,6 +16,10 @@ import vision.core.image.ImageRepresentation;
 
 public abstract class VisionService extends Service {
 	
+	protected VisionService() {
+		
+	}
+	
 	public ImageRepresentation process(final InputStream inputStream) {
 		try {
 			final ImageInputStream imageInputStream = ImageIO.createImageInputStream(inputStream);
