@@ -24,7 +24,7 @@ import japp.web.dispatcher.http.HttpDispatcherImpl;
 import japp.web.dispatcher.http.parser.FormDataDispatcherParser;
 import japp.web.dispatcher.http.parser.HttpDispatcherParserManagerImpl;
 import japp.web.dispatcher.http.parser.JsonHttpDispatcherParser;
-import japp.web.dispatcher.http.parser.TextPlainHttpDispatcherParser;
+import japp.web.dispatcher.http.parser.TextHttpDispatcherParser;
 
 public class AppServlet extends HttpServlet {
 	
@@ -96,7 +96,7 @@ public class AppServlet extends HttpServlet {
 				if (httpDispatcher == null) {
 					HttpDispatcherParserManagerImpl.getInstance().addHttpDispatcherParser(new FormDataDispatcherParser());
 					HttpDispatcherParserManagerImpl.getInstance().addHttpDispatcherParser(new JsonHttpDispatcherParser());
-					HttpDispatcherParserManagerImpl.getInstance().addHttpDispatcherParser(new TextPlainHttpDispatcherParser());
+					HttpDispatcherParserManagerImpl.getInstance().addHttpDispatcherParser(new TextHttpDispatcherParser());
 					
 					httpDispatcher = HttpDispatcherImpl.getInstance();
 				}
