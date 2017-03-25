@@ -19,6 +19,8 @@ import japp.model.service.ServiceFactory;
 import japp.model.service.ServiceFactoryImpl;
 import japp.web.WebApp;
 import japp.web.WebAppConfiguration;
+import japp.web.controller.ws.WsControllerFactory;
+import japp.web.controller.ws.WsControllerFactoryImpl;
 import japp.web.dispatcher.http.HttpDispatcher;
 import japp.web.dispatcher.http.HttpDispatcherImpl;
 import japp.web.dispatcher.http.parser.FormDataDispatcherParser;
@@ -31,6 +33,7 @@ public class AppServlet extends HttpServlet {
 	private static final long serialVersionUID = -4995707578234243087L;
 	
 	private static HttpDispatcher httpDispatcher = null;
+	private static WsControllerFactory wsControllerFactory = null;
 	
 	@Override
 	public void init() throws ServletException {
@@ -102,6 +105,15 @@ public class AppServlet extends HttpServlet {
 				}
 				
 				return httpDispatcher;
+			}
+			
+			@Override
+			public WsControllerFactory getWsControllerFactory() {
+				if (wsControllerFactory == null) {
+					wsControllerFactory = WsControllerFactoryImpl.getInstance();
+				}
+				
+				return wsControllerFactory;
 			}
 			
 			@Override
