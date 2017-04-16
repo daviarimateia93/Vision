@@ -15,6 +15,8 @@ import japp.model.business.BusinessFactory;
 import japp.model.business.BusinessFactoryImpl;
 import japp.model.repository.RepositoryFactory;
 import japp.model.repository.RepositoryFactoryImpl;
+import japp.model.repository.RepositoryManager;
+import japp.model.repository.RepositoryManagerImpl;
 import japp.model.service.ServiceFactory;
 import japp.model.service.ServiceFactoryImpl;
 import japp.web.WebApp;
@@ -49,6 +51,11 @@ public class AppServlet extends HttpServlet {
 			@Override
 			public RepositoryFactory getRepositoryFactory() {
 				return RepositoryFactoryImpl.getInstance();
+			}
+			
+			@Override
+			public RepositoryManager getRepositoryManager() {
+				return RepositoryManagerImpl.getInstance();
 			}
 			
 			@Override
