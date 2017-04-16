@@ -101,7 +101,7 @@ public class AppServlet extends HttpServlet {
 					HttpDispatcherParserManagerImpl.getInstance().addHttpDispatcherParser(new JsonHttpDispatcherParser());
 					HttpDispatcherParserManagerImpl.getInstance().addHttpDispatcherParser(new TextHttpDispatcherParser());
 					
-					httpDispatcher = HttpDispatcherImpl.getInstance();
+					httpDispatcher = new HttpDispatcherImpl();
 				}
 				
 				return httpDispatcher;
