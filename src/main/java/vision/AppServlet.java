@@ -72,6 +72,11 @@ public class AppServlet extends HttpServlet {
 			}
 			
 			@Override
+			public void end() {
+				
+			}
+			
+			@Override
 			public String getAppName() {
 				return "Vision";
 			}
