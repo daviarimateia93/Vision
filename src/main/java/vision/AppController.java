@@ -26,7 +26,7 @@ public class AppController extends HttpController {
 	
 	@Requestable(value = "/ImageUpload", method = RequestMethod.POST)
 	public View upload(@RequestParameter("file") Part imagePart, HttpServletRequest httpServletRequest) throws IOException {
-		ImageRepresentation imageRepresentation = WebApp.getService(StockVisionService.class).process(imagePart.getInputStream());
+		ImageRepresentation imageRepresentation = WebApp.getService(StockVisionService.class).get().process(imagePart.getInputStream());
 		
 		httpServletRequest.setAttribute("image", StringHelper.base64Encode(imageRepresentation.convertToBytes()));
 		httpServletRequest.setAttribute("imageContentType", imageRepresentation.getContentType());

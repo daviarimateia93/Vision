@@ -3,7 +3,7 @@ package vision.core;
 import java.util.ArrayList;
 import java.util.List;
 
-import japp.util.Setable;
+import japp.util.Reference;
 
 public class VisionProcessor {
 	
@@ -174,17 +174,17 @@ public class VisionProcessor {
 		final int[][] edgedImageArray = edge(imageArray, 1);
 		final int[][] regions = VisionHelper.empty(edgedImageArray);
 		final List<Integer> junctions = new ArrayList<Integer>();
-		final Setable<Integer> regionCounter = new Setable<Integer>(0);
+		final Reference<Integer> regionCounter = new Reference<Integer>(0);
 		
-		junctions.add(regionCounter.getValue());
+		junctions.add(regionCounter.get());
 		
 		VisionHelper.iterate(edgedImageArray, (data, width, height, column, row, value) -> {
 			if (value == 255 && row > 0 && row < height - 1 && column > 0 && column < width - 1) {
 				// Rule #1 -> left == 0 && top == 0
 				if ((regions[column - 1][row] == 0) && (regions[column][row - 1] == 0)) {
-					regionCounter.setValue(regionCounter.getValue() + 1);
-					regions[column][row] = regionCounter.getValue();
-					junctions.add(regionCounter.getValue());
+					regionCounter.set(regionCounter.get() + 1);
+					regions[column][row] = regionCounter.get();
+					junctions.add(regionCounter.get());
 				}
 				
 				// Rule #2 -> left != 0 && top == 0
