@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>Vision</groupId>
     <artifactId>Vision</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <packaging>war</packaging>
     <name>OCR</name>
     <build>
@@ -37,7 +37,7 @@
         <dependency>
             <groupId>japp</groupId>
             <artifactId>JAppWeb</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.1</version>
         </dependency>
         <dependency>
             <groupId>jstl</groupId>
